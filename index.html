@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tiền chơi net</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+        .box {
+            background: white;
+            max-width: 350px;
+            padding: 20px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Tính tiền chơi net</h2>
+    <label>Nhập số giờ chơi:</label>
+    <input type="number" id="gio" placeholder="Ví dụ: 2.5">
+
+    <button onclick="tinhTien()">Tính tiền</button>
+
+    <h3 id="ketqua"></h3>
+</div>
+
+<script>
+function tinhTien() {
+    let gio = parseFloat(document.getElementById('gio').value);
+    let gia = 0;
+
+    if (gio < 1) {
+        gia = 12000;
+    } else if (gio < 3) {
+        gia = 10000;
+    } else {
+        gia = 8000;
+    }
+
+    let tien = gio * gia;
+    document.getElementById('ketqua').innerHTML = "Tiền cần trả: " + tien + "đ";
+}
+</script>
+
+</body>
+  </html>
